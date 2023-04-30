@@ -48,7 +48,7 @@ class StagiaireController extends Controller
         $stagiaire->adresse=$request->adresse;
         $stagiaire->ville=$request->ville;
         $stagiaire->save();
-        return redirect('stagiaires');
+        return redirect('stagiaires') ->with('success', 'Stagiaires Created Successfully!');;
     }
 
     /**
@@ -75,6 +75,23 @@ class StagiaireController extends Controller
     public function update(Request $request, Stagiaire $stagiaire)
     {
         //
+        $request->validate([
+            'nom'=>'required',
+            'prenom'=>'required',
+            'filiere'=>'required',
+            'tele'=>'required',
+            'adresse'=>'required',
+            'ville'=>'required',
+        ]);
+        $stagiaire=new Stagiaire();
+        $stagiaire->nom=$request->nom;
+        $stagiaire->prenom=$request->prenom;
+        $stagiaire->filiere=$request->filiere;
+        $stagiaire->tele=$request->tele;
+        $stagiaire->adresse=$request->adresse;
+        $stagiaire->ville=$request->ville;
+        $stagiaire->save();
+        return redirect('stagiaires')->with('success', 'Stagiaires Updated Successfully!');
     }
 
     /**
@@ -84,7 +101,7 @@ class StagiaireController extends Controller
     {
         //
         $stagiaire->delete();
-        return redirect('stagiaires');
+        return redirect('stagiaires')->with('success', 'Stagiaires Deleted Successfully!');;
     }
 
 
@@ -95,7 +112,7 @@ class StagiaireController extends Controller
         //
         $stagiaire= Stagiaire::all();
         $stagiaire->deleteAll();
-        return redirect('stagiaires');
+        return redirect('stagiaires')->with('success', 'All Stagiaires Deleted Successfully!'); ;
     }
 
 

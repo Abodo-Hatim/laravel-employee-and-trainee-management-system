@@ -51,7 +51,7 @@ class EmployeController extends Controller
         $employe->adresse=$request->adresse;
         $employe->ville=$request->ville;
         $employe->save();
-        return redirect('employes');
+        return redirect('employes')->with('success', 'Employee Create Successfully!');;
     }
 
     /**
@@ -97,7 +97,7 @@ class EmployeController extends Controller
         $employe->adresse=$request->adresse;
         $employe->ville=$request->ville;
         $employe->save();
-        return redirect('employes');
+        return redirect('employes')->with('success', 'Employee Updated Successfully!');;
     }
 
     /**
@@ -107,7 +107,7 @@ class EmployeController extends Controller
     {
         //
         $employe->delete();
-        return redirect('employes');
+        return redirect('employes')->with('success', 'Employee Deleted Successfully!');;
     }
 
 
@@ -118,7 +118,7 @@ class EmployeController extends Controller
         //
         $employe= Employe::all();
         $employe->deleteAll();
-        return redirect('employes');
+        return redirect('employes')->with('success', 'All Employee Deleted Successfully!');;
     }
 
 

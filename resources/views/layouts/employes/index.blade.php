@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1>Les S'employés Dans Cette Service </h1>
+    <h1>Les Employer Dans Ce Service </h1>
     <ul class="nav col-12 col-md-auto mb-2 justify-content-end mb-md-0 mx-5 my-2">
         <li><a href="{{ route('employes.create')}}" class="nav-link px-2 btn btn-success text-white me-2">Ajouter Employes</a></li>
         <li>
@@ -14,6 +14,14 @@
             </form>
         </li>
     </ul>
+</div>
+
+<div style="margin-left: -100px; margin-right : 50px ;" >
+@if (session('success'))
+    <div class="alert alert-success my-5">
+        {{ session('success') }}
+    </div>
+@endif
 </div>
 
     <table class="table table-hover table-responsive w-100 my-2" style="margin-left : -70px;">
